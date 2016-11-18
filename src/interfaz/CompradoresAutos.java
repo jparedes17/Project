@@ -14,6 +14,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 
@@ -34,6 +35,11 @@ public class CompradoresAutos extends javax.swing.JDialog {
     public CompradoresAutos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        JButton botonesH[]={cmdBuscar, cmdLimpiar};
+        JButton botonesD[]={cmbGuardar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
         ruta = "src/datos/autosComprados.txt";
         try {
             auto = Helper.traerDatos(ruta);
@@ -43,7 +49,8 @@ public class CompradoresAutos extends javax.swing.JDialog {
         }
         Helper.volcado(salida, auto);
     }
-
+    
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,7 +84,6 @@ public class CompradoresAutos extends javax.swing.JDialog {
         cmdBuscar = new javax.swing.JButton();
         cmbGuardar = new javax.swing.JButton();
         cmdLimpiar = new javax.swing.JButton();
-        cmdSalir = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
@@ -206,10 +212,6 @@ public class CompradoresAutos extends javax.swing.JDialog {
         });
         jPanel3.add(cmdLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 110, 30));
 
-        cmdSalir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cmdSalir.setText("Salir");
-        jPanel3.add(cmdSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 110, 30));
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/183903088.gif"))); // NOI18N
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 490, 330));
 
@@ -277,6 +279,12 @@ public class CompradoresAutos extends javax.swing.JDialog {
         txtMarca.setText("");
         txtNombre.requestFocusInWindow();
         }
+        
+        JButton botonesH[]={cmdBuscar, cmdLimpiar};
+        JButton botonesD[]={cmbGuardar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
     }//GEN-LAST:event_cmbGuardarActionPerformed
 
     private void cmdBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBuscarActionPerformed
@@ -295,6 +303,11 @@ public class CompradoresAutos extends javax.swing.JDialog {
             txtNombre.requestFocusInWindow();
             aux = 0;
         }
+        JButton botonesH[]={cmbGuardar, cmdLimpiar};
+        JButton botonesD[]={cmdBuscar};
+        
+        Helper.habilitarBotones(botonesH);
+        Helper.deshabilitarBotones(botonesD);
     }//GEN-LAST:event_cmdBuscarActionPerformed
 
     private void cmdLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLimpiarActionPerformed
@@ -380,7 +393,6 @@ public class CompradoresAutos extends javax.swing.JDialog {
     private javax.swing.JButton cmbGuardar;
     private javax.swing.JButton cmdBuscar;
     private javax.swing.JButton cmdLimpiar;
-    private javax.swing.JButton cmdSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
